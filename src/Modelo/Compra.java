@@ -12,7 +12,7 @@ package Modelo;
 public class Compra {
     private int cod;
     private String Nomecli;
-    private int Divida;
+    private double Divida;
     private String Produto;
 
     public int getCod() {
@@ -31,11 +31,11 @@ public class Compra {
         this.Nomecli = Nomecli;
     }
 
-    public int getDivida() {
+    public double getDivida() {
         return Divida;
     }
 
-    public void setDivida(int Divida) {
+    public void setDivida(double Divida) {
         this.Divida = Divida;
     }
 

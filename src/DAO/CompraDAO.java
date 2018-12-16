@@ -31,7 +31,7 @@ public class CompraDAO extends ExecuteSQL {
             PreparedStatement ps = getCon().prepareStatement(sql);
             
             ps.setString(1, a.getNomecli());
-            ps.setInt(2, a.getDivida());
+            ps.setDouble(2, a.getDivida());
             ps.setString(3, a.getProduto());
             
 
@@ -208,7 +208,7 @@ public class CompraDAO extends ExecuteSQL {
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
             ps.setString(1, a.getNomecli());
-            ps.setInt(2, a.getDivida());
+            ps.setDouble(2, a.getDivida());
             ps.setString(3, a.getProduto());
             ps.setInt(4, a.getCod());
             

@@ -85,8 +85,14 @@ public class CadastrarCompra extends javax.swing.JFrame {
         comboCli = new javax.swing.JComboBox<>();
         jTF_Cliente = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTF_Produto = new javax.swing.JTextField();
+        jTF_Preco = new javax.swing.JTextField();
         comboPro = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jTF_Quant = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jTF_PrecoF = new javax.swing.JTextField();
+        Calcular = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -142,7 +148,7 @@ public class CadastrarCompra extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(102, 102, 102)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -180,9 +186,26 @@ public class CadastrarCompra extends javax.swing.JFrame {
 
         jLabel4.setText("Produto :");
 
+        jTF_Preco.setEditable(false);
+
         comboPro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboProActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Preço :");
+
+        jLabel6.setText("Quantidade :");
+
+        jLabel7.setText("Valor Final :");
+
+        jTF_PrecoF.setEditable(false);
+
+        Calcular.setText("Calcular");
+        Calcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CalcularActionPerformed(evt);
             }
         });
 
@@ -198,20 +221,31 @@ public class CadastrarCompra extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)
-                            .addComponent(jLabel4))
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel7))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTF_PrecoF, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTF_Produto, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jTF_Cliente, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(comboCli, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jTextField1)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(comboPro, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel5)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTF_Preco, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel6)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTF_Quant)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(comboPro, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jTF_Cliente, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(comboCli, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jTextField1)))
-                        .addGap(0, 95, Short.MAX_VALUE))
+                                .addComponent(Calcular)))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -235,8 +269,16 @@ public class CadastrarCompra extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(comboPro, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTF_Produto, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, Short.MAX_VALUE)
+                    .addComponent(jTF_Preco, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5)
+                    .addComponent(jTF_Quant, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6)
+                    .addComponent(Calcular, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jTF_PrecoF, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -259,40 +301,24 @@ public class CadastrarCompra extends javax.swing.JFrame {
         Conexao.FecharConexao(con);
     }//GEN-LAST:event_comboCliActionPerformed
 
-    private void comboProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboProActionPerformed
-        Connection con = Conexao.AbrirConexao();
-        ProdutoDAO sql = new ProdutoDAO(con);
-        List<Produto> lista = new ArrayList<>();
-        String nome = comboPro.getSelectedItem().toString();
-        String preco = jTF_Produto.getText();
-
-        lista = sql.ConsultarCodigoProduto(nome);
-
-        for (Produto b : lista) {
-            int a = b.getPreco();
-            jTF_Produto.setText("" + a);
-        }
-
-        Conexao.FecharConexao(con);
-    }//GEN-LAST:event_comboProActionPerformed
-
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String nome = comboCli.getSelectedItem().toString();
-        String preco = jTF_Produto.getText();
+        String preco = jTF_PrecoF.getText();
         String produto = comboPro.getSelectedItem().toString();
+        String quant = jTF_Quant.getText();
 
-        if (nome.equals("") || produto.equals("") || preco.equals("")) {
+        if (nome.equals("") || produto.equals("")) {
 
             JOptionPane.showMessageDialog(null, "Nenhum campo está vazio",
                 "Vídeo Locadora", JOptionPane.WARNING_MESSAGE);
         } else {
             Connection con = Conexao.AbrirConexao();
             CompraDAO sql = new CompraDAO(con);
-            int n = Integer.parseInt(preco);
+            double n = Double.parseDouble(preco);
             Compra a = new Compra();
 
             a.setNomecli(nome);
@@ -303,9 +329,11 @@ public class CadastrarCompra extends javax.swing.JFrame {
             Conexao.FecharConexao(con);
 
             jTF_Cliente.setText("");
-            jTF_Produto.setText("");
+            jTF_PrecoF.setText("");
             comboPro.setSelectedIndex(0);
             comboCli.setSelectedIndex(0);
+            jTF_Preco.setText("");
+            jTF_Quant.setText("");
            
 
             JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso",
@@ -315,8 +343,38 @@ public class CadastrarCompra extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTF_ClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_ClienteActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jTF_ClienteActionPerformed
+
+    private void comboProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboProActionPerformed
+        Connection con = Conexao.AbrirConexao();
+        ProdutoDAO sql = new ProdutoDAO(con);
+        List<Produto> lista = new ArrayList<>();
+        String nome = comboPro.getSelectedItem().toString();
+        String preco = jTF_Preco.getText();
+
+        lista = sql.ConsultarCodigoProduto(nome);
+
+        for (Produto b : lista) {
+            int a = b.getPreco();
+            jTF_Preco.setText("" + a);
+        }
+
+        Conexao.FecharConexao(con);
+    }//GEN-LAST:event_comboProActionPerformed
+
+    private void CalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalcularActionPerformed
+        String Preco = jTF_Preco.getText();
+        String Quant = jTF_Quant.getText();
+        
+        double preco = Double.parseDouble(Preco);
+        int quant = Integer.parseInt(Quant);
+        
+        double precoFinal = preco * quant;
+        
+        jTF_PrecoF.setText(""+precoFinal);
+    
+    }//GEN-LAST:event_CalcularActionPerformed
 
     /**
      * @param args the command line arguments
@@ -354,6 +412,7 @@ public class CadastrarCompra extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Calcular;
     private javax.swing.JComboBox<String> comboCli;
     private javax.swing.JComboBox<String> comboPro;
     private javax.swing.JButton jButton1;
@@ -363,10 +422,15 @@ public class CadastrarCompra extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTF_Cliente;
-    private javax.swing.JTextField jTF_Produto;
+    private javax.swing.JTextField jTF_Preco;
+    private javax.swing.JTextField jTF_PrecoF;
+    private javax.swing.JTextField jTF_Quant;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
