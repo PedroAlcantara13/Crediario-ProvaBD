@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 12-Dez-2018 às 02:39
+-- Generation Time: 17-Dez-2018 às 19:41
 -- Versão do servidor: 10.1.35-MariaDB
 -- versão do PHP: 7.2.9
 
@@ -47,7 +47,7 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`idcliente`, `nome`, `data_nasc`, `rg`, `cpf`, `email`, `telefone`, `bairro`, `rua`, `numero`, `cep`) VALUES
-(3, 'Pedro', '07/07/2001', '5621728962', '251.681.565-16', 'alcantarap37@gmail.com', '(84)99112-1051', 'alfowkegiwr', 'sgmeirn0erini0', 1383, '59920-000');
+(4, 'Levi Vinicius de Assis Silva', '26/09/2002', '111111111111111', '111.111.111-11', 'Leviviado111@gmail.com', '(84)99154-2556', 'Alto Santa Teresa', 'Marechal Costa Silva', 224, '59920-000');
 
 -- --------------------------------------------------------
 
@@ -58,7 +58,7 @@ INSERT INTO `cliente` (`idcliente`, `nome`, `data_nasc`, `rg`, `cpf`, `email`, `
 CREATE TABLE `compra` (
   `id` int(11) NOT NULL,
   `nomecli` varchar(80) NOT NULL,
-  `divida` varchar(80) NOT NULL,
+  `divida` double NOT NULL,
   `produto` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -67,7 +67,7 @@ CREATE TABLE `compra` (
 --
 
 INSERT INTO `compra` (`id`, `nomecli`, `divida`, `produto`) VALUES
-(4, 'Pedro Alcantara', '80', 'Seila');
+(1, 'Levi Vinicius de Assis Silva', 70, 'Redes de Algodão');
 
 -- --------------------------------------------------------
 
@@ -87,8 +87,7 @@ CREATE TABLE `funcionario` (
 --
 
 INSERT INTO `funcionario` (`idfuncionario`, `nome`, `login`, `senha`) VALUES
-(2, 'admin', 'admin', 'admin'),
-(4, 'seila', 'qwe', '123');
+(2, 'admin', 'admin', 'admin');
 
 -- --------------------------------------------------------
 
@@ -109,7 +108,7 @@ CREATE TABLE `produto` (
 --
 
 INSERT INTO `produto` (`id`, `nome`, `quantidade`, `preco`, `codpro`) VALUES
-(1, 'Seila', '8', '50', '1');
+(2, 'Redes de Algodão', '12', '70', '1');
 
 --
 -- Indexes for dumped tables
@@ -147,25 +146,25 @@ ALTER TABLE `produto`
 -- AUTO_INCREMENT for table `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `compra`
 --
 ALTER TABLE `compra`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `funcionario`
 --
 ALTER TABLE `funcionario`
-  MODIFY `idfuncionario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idfuncionario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `produto`
 --
 ALTER TABLE `produto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
